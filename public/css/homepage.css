@@ -1,6 +1,10 @@
 body{
 	margin: 0;
 	padding: 0;
+	background: #d9a7c7;  
+background: -webkit-linear-gradient(to right, #fffcdc, #d9a7c7);  
+background: linear-gradient(to right, #fffcdc, #d9a7c7)
+
 }
 
 .banner{
@@ -8,4 +12,62 @@ body{
 	width: 100%;
 	background-image: url('/images/banner.jpg');
 	background-size: cover;
+}
+
+.banner_heading{
+	margin: 15% 10%;
+	float: left;
+	width: 100%;
+}
+
+#welcome_heading{
+	font-size: 2.7rem;
+	font-family: 'Ubuntu', sans-serif;
+	display: inline-flex;
+}
+
+#blink_heading{
+	width: 100%;
+	display: inline-flex;
+	font-size: 3.4rem;
+	font-family: 'Gotu', sans-serif;
+}
+
+.explore_hire_button{
+	padding-top: 7%;
+	text-align: center;
+}
+
+.photo_collection_heading{
+	padding-top: 5%;
+	text-align: center;
+	font-family: 'Gotu', sans-serif;
+	font-size: 5rem;
+}
+
+.element_centre{
+	text-align: center;
+}
+
+.follow_heading{
+	font-size: 2rem;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+ul{
+	list-style: none;
+}
+
+li{
+	margin: 5%;
+}
+
+.list_follow{
+	font-family: 'Gotu', sans-serif;
+	font-size: 1rem;
+	letter-spacing: 3px;
+}
+
+.footer_div{
+	height: 40vh;
 }
