@@ -31,6 +31,7 @@ background: linear-gradient(to right, #fffcdc, #d9a7c7)
 	display: inline-flex;
 	font-size: 3.4rem;
 	font-family: 'Gotu', sans-serif;
+	letter-spacing: 3px;
 }
 
 .explore_hire_button{

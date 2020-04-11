@@ -18,26 +18,9 @@
   <title>Blink Buff</title>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  		<a class="navbar-brand" href="/">BlinkBuff</a>
-  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    		<span class="navbar-toggler-icon"></span>
-  		</button>
+	
+  <%- include('./partials/navbar') %>
 
-  		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-    		<ul class="navbar-nav mr-auto">
-      			<li class="nav-item active">
-       				<a class="nav-link" href="/">HomePage</a>
-      			</li>
-
-      			<li class="nav-item">
-        			<a class="nav-link" href="/">Collections</a>
-      			</li>
-    		</ul>
-			<button class="btn btn-outline-success" type="button">Contribute ?</button>
-  		</div>
-	</nav>
-  
   <div class="banner">
     <div class="container">
       <div class="row">
@@ -64,7 +47,7 @@
         <button class="btn btn-success btn-md">Hire Us !</button>
         <br>
         <br>
-        <button class="btn btn-primary btn-md">Contribute</button>
+        <a href="/user/login"><button class="btn btn-primary btn-md">Contribute</button></a>
       </div>
     </div>
   </div>
@@ -89,7 +72,7 @@
         <img src="http://unsplash.it/650/450?image=823" data-full="http://unsplash.it/1300/900?image=823" class="m-p-g__thumbs-img" />
         <img src="http://unsplash.it/600/350?image=815" data-full="http://unsplash.it/1200/700?image=815" class="m-p-g__thumbs-img" />
         
-        <a href="/h"><img src="https://images.unsplash.com/photo-1533601017-dc61895e03c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"/></a>
+        <a href="/h"><img src="https://images.unsplash.com/photo-1533601017-dc61895e03c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="border-radius:50%;"/></a>
     </div>
     <div class="m-p-g__fullscreen">
     </div>
