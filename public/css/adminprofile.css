@@ -1,0 +1,26 @@
+body{
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+}
+
+.bordercheck{
+  border: 1px solid red;
+}
+
+.dp{
+  height: 30%;
+  width: 30%;
+}
+
+.username_heading{
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.7rem;
+  font-family: 'Gotu', sans-serif;
+}
+
+.username_value{
+  font-size: 1.7rem;
+  font-family: 'Ubuntu', sans-serif;
+}

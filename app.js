@@ -34,16 +34,19 @@ app.use("/user",userRoutes);
 app.use("/auth",authRoutes);
 
 
-
-
-
-
 app.get('/', (req,res) => {
 	res.render('homepage',{user:req.user});
 });
 
 
+app.get('/error', (req,res) => {
+	res.render('errorpage',{user:req.user});
+});
 
+app.get("/logout", (req,res) => {
+	req.logout();
+	res.redirect("/user/login");
+});
 
 
 const port = process.env.PORT || 3000;

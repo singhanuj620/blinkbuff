@@ -4,36 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="navbar.js"></script>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Gotu&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/css/index.css" type="text/css">
-  <title>Profile Page</title>
+
+  <title>User Profile</title>
 </head>
 <body>
-<br>
-<br>
-<div class="container">
-		<div class="row">
-			<div class="col-lg-4 col-md-4 element_centre">
-				<% if (user) { %>
-					<a href="/auth/logout"><button class="btn btn-md btn-warning">Logout</button></a>
-				<% } %>
-			</div>
-
-			<div class="col-lg-4 col-md-4 element_centre">
-				<% if (!user) { %>
-					<a href="/auth/login"><button class="btn btn-md btn-primary">Login</button></a>
-				<% } else { %>
-					<a href="/profile"><button class="btn btn-md btn-primary">Profile</button></a>
-					<% } %>
-			</div>
-
-			<div class="col-lg-4 col-md-4 element_centre">
-				<a href="/"><button class="btn btn-md btn-success">Homepage</button></a>
-			</div>
-		</div>
-</div>
-
+<%- include('./partials/navbar') %>
 <br>
 <div class="container">
 	<div class="row">
@@ -49,6 +30,10 @@
 	</div>
 </div>
 
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

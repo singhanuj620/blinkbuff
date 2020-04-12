@@ -13,9 +13,14 @@
       			<li class="nav-item">
         			<a class="nav-link" href="/">Collections</a>
       			</li>
+            <% if (user) { -%>
+              <li class="nav-item my-auto">
+                <span style="color: white; white-space: nowrap;">Welcome, <%=user.username%></span>
+              </li>
+            <% } -%>
     		</ul>
       <% if (user) { -%>
-        <a href="/user/logout"><button class="btn btn-outline-success" type="button">Logout</button></a>
+        <a href="/logout"><button class="btn btn-outline-success" type="button">Logout</button></a>
       <% } else { -%>
         <a href="/user/login"><button class="btn btn-outline-success" type="button">Contribute ?</button></a>
       <% } -%>

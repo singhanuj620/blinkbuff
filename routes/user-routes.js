@@ -1,13 +1,18 @@
 const router 	=	require('express').Router();
 
-const authCheck = (req,res,next) => {
+const authUserCheck = (req,res,next) => {
 	if(!req.user){
 		// if user is not logged in
 		res.redirect("/user/login");
 	}
 	else{
 		// user is loggerd in
-		next();
+		if(req.user.role=='guest'){
+			next();
+		}
+		else{
+			res.redirect('/auth/rolecheck');
+		}
 	}
 }
 
@@ -15,21 +20,15 @@ const authCheck = (req,res,next) => {
 
 router.get('/login',(req,res) => {
 	if(req.user){
-		res.redirect('/user/profile',{user:req.user});
+		res.redirect('/auth/rolecheck');
 	}
 	else{
 		res.render('login',{user:req.user});
 	}
 });
 
-router.get('/profile',authCheck,(req,res) => {
+router.get('/profile',authUserCheck,(req,res) => {
 	res.render('userprofile',{user:req.user});
-});
-
-
-router.get("/logout", (req,res) => {
-	req.logout();
-	res.redirect("/user/login");
 });
 
 

@@ -8,8 +8,22 @@ router.get("/google",passport.authenticate('google',{
 }));
 
 router.get("/google/redirect",passport.authenticate('google'), (req,res) => {
-	res.redirect('/user/profile');
+	res.redirect('/auth/rolecheck');
 });
+
+router.get('/rolecheck',(req,res) => {
+	if(req.user){
+		if(req.user.role=='admin'){
+			res.redirect('/admin/profile');
+		}
+		else{
+			res.redirect('/user/profile');
+		}
+	}
+	else{
+		res.redirect('/user/login');
+	}
+})
 
 
 module.exports = router;
