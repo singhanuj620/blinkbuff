@@ -1,5 +1,8 @@
 body{
-  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+  background: #9796f0;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #fbc7d4, #9796f0);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #fbc7d4, #9796f0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .bordercheck{
@@ -12,8 +15,8 @@ body{
 }
 
 .username_heading{
-  background-color: white;
-  color: black;
+  background: grey;
+  color: white;
   border-radius: 5px;
   text-align: center;
   font-size: 1.7rem;
@@ -22,5 +25,15 @@ body{
 
 .username_value{
   font-size: 1.7rem;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.img_preview{
+  height: 200px;
+  width: 200px;
+}
+
+.table_text{
+  font-size: 1rem;
   font-family: 'Ubuntu', sans-serif;
 }

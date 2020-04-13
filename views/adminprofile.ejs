@@ -23,22 +23,265 @@
 
 <div class="container">
   <div class="row" style="margin-top: 3%;">
-    <div class="col-lg-6 col-md-6 col-sm-4">
-      <img src="<%=user.thumbnail%>" alt="Admin Profile Image" class="img-fluid img-thumbnail dp rounded mx-auto d-block">
+    <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-center">
+      <img src="<%=user.thumbnail%>" alt="Admin Profile Image" class="img-fluid img-thumbnail dp">
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-4 bordercheck">
+    <div class="col-lg-6 col-md-6 col-sm-6">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
           <p class="username_heading">Admin Name : </p>
         </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 mx-auto">
+        <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center">
           <span class="username_value"><%=user.username%> &nbsp;</span>
-          <span class="badge badge-warning"><%=user.googleid%></span>
+          <span class="badge badge-warning  d-flex align-items-center"><%=user.googleid%></span>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
+<div class="container">
+  <div class="row" style="margin-top: 3%;">
+    <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-start flex-column">
+      <span class="username_heading">Pending Contributions :</span>
+    </div>
+
+    <!-- <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-center">
+      <button class="btn btn-outline-primary">Add More</button>
+    </div> -->
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Image Preview</th>
+      <th scope="col">Image Title</th>
+      <th scope="col">Image Author</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody class="table_text">
+    <tr>
+      <th scope="row">1</th>
+      <td><img class="img_preview" src="https://images.pexels.com/photos/2127463/pexels-photo-2127463.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Sunset"></td>
+      <td>Sunset</td>
+      <td>Anuj Singh</td>
+      <td>
+        <div>
+          <button class="btn btn-sm btn-info">View</button>
+          <span> | </span>
+          <button class="btn btn-sm btn-success">Accept</button>
+          <span> | </span>
+          <button class="btn btn-sm btn-danger">Delete</button>
+        </div>
+      </td>
+    </tr>
+    
+    <tr>
+      <th scope="row">2</th>
+      <td><img class="img_preview" src="https://images.pexels.com/photos/2448550/pexels-photo-2448550.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Sunset"></td>
+      <td>Sunrise</td>
+      <td>Raj Gupta</td>
+      <td>
+        <div>
+          <button class="btn btn-sm btn-info">View</button>
+          <span> | </span>
+          <button class="btn btn-sm btn-success">Accept</button>
+          <span> | </span>
+          <button class="btn btn-sm btn-danger">Delete</button>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <th scope="row">3</th>
+      <td><img class="img_preview" src="https://images.pexels.com/photos/894443/pexels-photo-894443.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Sunset"></td>
+      <td>Flower</td>
+      <td>Satyam Chaurasia</td>
+      <td>
+        <div>
+          <button class="btn btn-sm btn-info">View</button>
+          <span> | </span>
+          <button class="btn btn-sm btn-success">Accept</button>
+          <span> | </span>
+          <button class="btn btn-sm btn-danger">Delete</button>
+        </div>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div class="container">
+  <div class="row" style="margin-top: 3%;">
+    <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-start flex-column">
+      <span class="username_heading">Your Contribution :</span>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-center">
+      <button class="btn btn-primary">Add More</button>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Image Preview</th>
+      <th scope="col">Image Title</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody class="table_text">
+    <tr>
+      <th scope="row">1</th>
+      <td><img class="img_preview" src="https://images.pexels.com/photos/2127463/pexels-photo-2127463.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Sunset"></td>
+      <td>Sunset</td>
+      <td>
+        <div>
+          <a href="https://images.pexels.com/photos/2127463/pexels-photo-2127463.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" target="_blank"><button class="btn btn-sm btn-info">View</button></a>
+          <span> | </span>
+          <button class="btn btn-sm btn-success">Accept</button>
+          <span> | </span>
+          <button class="btn btn-sm btn-danger">Delete</button>
+        </div>
+      </td>
+    </tr>
+    
+    <tr>
+      <th scope="row">2</th>
+      <td><img class="img_preview" src="https://images.pexels.com/photos/2448550/pexels-photo-2448550.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Sunset"></td>
+      <td>Sunrise</td>
+      <td>
+        <div>
+          <a href="https://images.pexels.com/photos/2448550/pexels-photo-2448550.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" target="_blank"><button class="btn btn-sm btn-info">View</button></a>
+          <span> | </span>
+          <button class="btn btn-sm btn-success">Accept</button>
+          <span> | </span>
+          <button class="btn btn-sm btn-danger">Delete</button>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <th scope="row">3</th>
+      <td><img class="img_preview" src="https://images.pexels.com/photos/894443/pexels-photo-894443.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Sunset"></td>
+      <td>Flower</td>
+      <td>
+        <div>
+          <a href="https://images.pexels.com/photos/894443/pexels-photo-894443.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" target="_blank"><button class="btn btn-sm btn-info">View</button></a>
+          <span> | </span>
+          <button class="btn btn-sm btn-success">Accept</button>
+          <span> | </span>
+          <button class="btn btn-sm btn-danger">Delete</button>
+        </div>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container">
+  <div class="row" style="margin-top: 3%;">
+    <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-start flex-column">
+      <span class="username_heading">Overall Contributions :</span>
+    </div>
+
+    <!-- <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-center">
+      <button class="btn btn-outline-primary">Add More</button>
+    </div> -->
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Image Preview</th>
+      <th scope="col">Image Title</th>
+      <th scope="col">Image Author</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody class="table_text">
+    <tr>
+      <th scope="row">1</th>
+      <td><img class="img_preview" src="https://images.pexels.com/photos/2127463/pexels-photo-2127463.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Sunset"></td>
+      <td>Sunset</td>
+      <td>Anuj Singh</td>
+      <td>
+        <div>
+          <button class="btn btn-sm btn-info">View</button>
+          <span> | </span>
+          <button class="btn btn-sm btn-success">Accept</button>
+          <span> | </span>
+          <button class="btn btn-sm btn-danger">Delete</button>
+        </div>
+      </td>
+    </tr>
+    
+    <tr>
+      <th scope="row">2</th>
+      <td><img class="img_preview" src="https://images.pexels.com/photos/2448550/pexels-photo-2448550.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Sunset"></td>
+      <td>Sunrise</td>
+      <td>Raj Gupta</td>
+      <td>
+        <div>
+          <button class="btn btn-sm btn-info">View</button>
+          <span> | </span>
+          <button class="btn btn-sm btn-success">Accept</button>
+          <span> | </span>
+          <button class="btn btn-sm btn-danger">Delete</button>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <th scope="row">3</th>
+      <td><img class="img_preview" src="https://images.pexels.com/photos/894443/pexels-photo-894443.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Sunset"></td>
+      <td>Flower</td>
+      <td>Satyam Chaurasia</td>
+      <td>
+        <div>
+          <button class="btn btn-sm btn-info">View</button>
+          <span> | </span>
+          <button class="btn btn-sm btn-success">Accept</button>
+          <span> | </span>
+          <button class="btn btn-sm btn-danger">Delete</button>
+        </div>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+    </div>
+  </div>
+</div>
+
+
 
 
 
