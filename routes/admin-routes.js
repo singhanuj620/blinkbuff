@@ -61,7 +61,7 @@ router.post('/submit',(req,res) => {
 		// console.log(data)
 		new Image({
 			author:author,
-			title:title+"-"+author,
+			title:title,
 		  	contentType:img.type,
 		  	size:Math.round((img.size)/1024),
 		  	image:encode_image
