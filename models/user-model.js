@@ -5,8 +5,7 @@ const userSchema = new Schema({
 	username:String,
 	googleid:String,
 	thumbnail:String,
-	role:String,
-	images:[{imageid:String}]
+	role:String
 });
 
 const User = mongoose.model("users", userSchema);

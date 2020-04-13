@@ -8,13 +8,19 @@ const 	express 			=	require('express'),
 		adminRoutes 		=	require("./routes/admin-routes"),
 		userRoutes 			=	require("./routes/user-routes"),
 		authRoutes 			=	require("./routes/auth-routes"),
+		bodyParser			=	require('body-parser'),
+		methodOverride		=	require('method-override'),
+		fs 					=	require('fs'),
+		path				=	require('path'),
+		formidable 			= 	require('formidable'),
 		app					=	express();
 
 dotenv.config();
 app.set('view engine' , 'ejs');
 app.use( express.static( "public" ) );
 app.use(express.urlencoded({extended: false}));
-
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(methodOverride('_method'));
 
 app.use(cookieSession({
 	maxAge: 24*60*60*1000,
