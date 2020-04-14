@@ -17,13 +17,18 @@ router.get('/rolecheck',(req,res) => {
 			res.redirect('/admin/profile');
 		}
 		else{
-			res.redirect('/user/profile');
+			res.redirect('/user/uploadphoto');
 		}
 	}
 	else{
 		res.redirect('/user/login');
 	}
 })
+
+
+router.get('/*',(req,res) => {
+	res.redirect('/error');
+});
 
 
 module.exports = router;

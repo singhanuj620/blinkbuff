@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="navbar.js"></script>
+  <link rel="stylesheet" href="/css/adminupload.css" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Gotu&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <title>Blink Buff | User Upload</title>
+</head>
+<body>
+	
+  <%- include('./partials/navbar') %>
+
+
+<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-lg-6 m-auto">
+				<h1 class="display-4 my-4 text-center">Upload The Photo</h1>
+				<form action="/user/submit" method="POST" enctype="multipart/form-data">
+					
+					<input type="text" name="author" id="author" class="custom-file mb-3" value="<%=user.username%>" hidden >
+
+					<input type="text" name="title" id="title" class="custom-file mb-3" placeholder="Image Title">
+					
+					<div class="custom-file mb-3">
+						<input type="file" name="file" id="file" class="custom-file-input" accept="image/*">
+
+						<label for="file" class="custom-file-label">Choose File</label>
+
+						<input type="submit" value="Submit" class="btn btn-primary btn-block" style="margin-top: 10px">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

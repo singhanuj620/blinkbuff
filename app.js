@@ -8,12 +8,14 @@ const 	express 			=	require('express'),
 		adminRoutes 		=	require("./routes/admin-routes"),
 		userRoutes 			=	require("./routes/user-routes"),
 		authRoutes 			=	require("./routes/auth-routes"),
+		deleteRoutes		=	require("./routes/delete-routes"),
 		bodyParser			=	require('body-parser'),
 		methodOverride		=	require('method-override'),
 		fs 					=	require('fs'),
 		path				=	require('path'),
 		formidable 			= 	require('formidable'),
 		app					=	express();
+const Image	=	require('./models/image-model');
 
 dotenv.config();
 app.set('view engine' , 'ejs');
@@ -38,6 +40,7 @@ mongoose.connect(db_url,{useUnifiedTopology:true, useNewUrlParser: true},() => {
 app.use("/admin",adminRoutes);
 app.use("/user",userRoutes);
 app.use("/auth",authRoutes);
+app.use("/delete",deleteRoutes);
 
 
 app.get('/', (req,res) => {
@@ -54,6 +57,16 @@ app.get("/logout", (req,res) => {
 	res.redirect("/user/login");
 });
 
+app.get('/collections',(req,res) => {
+	Image.find().then((items) => {
+		let overall_length = Object.keys(items).length
+		res.render('collections',{user:req.user,images:items,len:overall_length});
+	});
+});
+
+app.get('/*',(req,res) => {
+	res.redirect('/error');
+});
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

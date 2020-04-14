@@ -75,54 +75,28 @@
     </tr>
   </thead>
   <tbody class="table_text">
-    <tr>
-      <th scope="row">1</th>
-      <td><img class="img_preview" src="https://images.pexels.com/photos/2127463/pexels-photo-2127463.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Sunset"></td>
-      <td>Sunset</td>
-      <td>Anuj Singh</td>
-      <td>
-        <div>
-          <a href="https://images.pexels.com/photos/2127463/pexels-photo-2127463.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" target="_blank"><button class="btn btn-sm btn-info">View</button></a>
-          <span> | </span>
-          <button class="btn btn-sm btn-success">Accept</button>
-          <span> | </span>
-          <button class="btn btn-sm btn-danger">Delete</button>
-        </div>
-      </td>
-    </tr>
-    
-    <tr>
-      <th scope="row">2</th>
-      <td><img class="img_preview" src="https://images.pexels.com/photos/2448550/pexels-photo-2448550.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Sunset"></td>
-      <td>Sunrise</td>
-      <td>Raj Gupta</td>
-      <td>
-        <div>
-          <a href="https://images.pexels.com/photos/2448550/pexels-photo-2448550.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" target="_blank"><button class="btn btn-sm btn-info">View</button></a>
-          <span> | </span>
-          <button class="btn btn-sm btn-success">Accept</button>
-          <span> | </span>
-          <button class="btn btn-sm btn-danger">Delete</button>
-        </div>
-      </td>
-    </tr>
-
-    <tr>
-      <th scope="row">3</th>
-      <td><img class="img_preview" src="https://images.pexels.com/photos/894443/pexels-photo-894443.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Sunset"></td>
-      <td>Flower</td>
-      <td>Satyam Chaurasia</td>
-      <td>
-        <div>
-          <a href="https://images.pexels.com/photos/894443/pexels-photo-894443.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" target="_blank"><button class="btn btn-sm btn-info">View</button></a>
-          <span> | </span>
-          <button class="btn btn-sm btn-success">Accept</button>
-          <span> | </span>
-          <button class="btn btn-sm btn-danger">Delete</button>
-        </div>
-      </td>
-    </tr>
-
+    <% for (var i = pend_len-1; i >= 0; i--) { -%>
+      <% let temp = pend_images[i].image; %>
+      <%  let photo = temp.toString('base64'); %>
+      <%  let pic = 'data:image/jpeg;base64,' + photo; %>
+      <tr>
+        <th scope="row"><%=pend_len-i%></th>
+        <td><img class="img_preview" src="<%= pic %>" alt="<%=pend_images[i].title%>"></td>
+        <td><%=pend_images[i].title%> ( <%=pend_images[i].size%> KB)</td>
+        <td><%=pend_images[i].author%></td>
+        <td>
+          <div>
+            <form action="/admin/accept/<%=pend_images[i].id%>" method="POST">
+              <button class="btn btn-sm btn-info" type="submit">Accept</button>
+            </form>
+            <span> | </span>
+            <form action="/delete/pending/<%=pend_images[i].id%>?_method=DELETE" method="POST">
+              <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+            </form>
+          </div>
+        </td>
+       </tr>
+    <% } -%>
   </tbody>
 </table>
     </div>
@@ -237,13 +211,15 @@
       <tr>
         <th scope="row"><%=len-i%></th>
         <td><img class="img_preview" src="<%= pic %>" alt="<%=images[i].title%>"></td>
-        <td><%=images[i].title%></td>
+        <td><%=images[i].title%> ( <%=images[i].size%> KB)</td>
         <td><%=images[i].author%></td>
         <td>
           <div>
             <a href="<%= pic %>" target="_blank"><button class="btn btn-sm btn-info">View</button></a>
             <span> | </span>
-            <button class="btn btn-sm btn-danger">Delete</button>
+            <form action="/delete/images/<%=images[i].id%>?_method=DELETE" method="POST">
+              <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+            </form>
           </div>
         </td>
        </tr>

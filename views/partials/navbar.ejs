@@ -11,18 +11,24 @@
       			</li>
 
       			<li class="nav-item d-flex align-items-center">
-        			<a class="nav-link" href="/">Collections</a>
+        			<a class="nav-link" href="/collections">Collections</a>
       			</li>
             <% if (user) { -%>
               <li class="nav-item d-flex align-items-center">
                 <span style="color: white; white-space: nowrap;">Welcome, <%=user.username%></span>
               </li>
-              <li class="nav-item d-flex align-items-center ml-3">
-              <a href="/auth/rolecheck"><button class="btn btn-outline-warning" type="button">Profile</button></a>
-              </li>
-              <li class="nav-item d-flex align-items-center ml-3">
-              <a href="/admin/uploadphoto"><button class="btn btn-outline-primary" type="button">Upload</button></a>
-              </li>
+              <% if (user.role=='admin') { -%>
+                <li class="nav-item d-flex align-items-center ml-3">
+                  <a href="/auth/rolecheck"><button class="btn btn-outline-warning" type="button">Profile</button></a>
+                </li>
+                <li class="nav-item d-flex align-items-center ml-3">
+                  <a href="/admin/uploadphoto"><button class="btn btn-outline-primary" type="button">Upload</button></a>
+                </li>
+              <% } else { -%>
+                <li class="nav-item d-flex align-items-center ml-3">
+                  <a href="/user/uploadphoto"><button class="btn btn-outline-primary" type="button">Upload</button></a>
+                </li>
+              <% } -%>
             <% } -%>
     		</ul>
       <% if (user) { -%>

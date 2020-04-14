@@ -4,6 +4,7 @@ const 	router 			=	require('express').Router(),
 		path			=	require('path'),
 		formidable 		= 	require('formidable');
 const Image	=	require('../models/image-model');
+const Pending	=	require('../models/pending-model');
 
 
 const authAdminCheck = (req,res,next) => {
@@ -29,18 +30,31 @@ const authAdminCheck = (req,res,next) => {
 
 router.get('/profile',authAdminCheck,(req,res) => {
 	Image.find().then((items) => {
-		let coll_length = Object.keys(items).length
-		res.render('adminprofile',{user:req.user, images:items, len:coll_length});
+		let overall_length = Object.keys(items).length
+
+		Pending.find().then((pend_items) => {
+			let pend_length = Object.keys(pend_items).length
+			res.render('adminprofile',{	user:req.user,
+										images:items,
+										len:overall_length,
+										pend_images:pend_items,
+										pend_len:pend_length
+									});
+		}).catch((err) => {
+			console.log('Error in pending');
+			console.log(err);
+		});
 	}).catch((err) => {
-		console.log(err)
+		console.log('Error in image collection');
+		console.log(err);
 	});
 });
 
-router.get('/uploadphoto',(req,res) => {
+router.get('/uploadphoto',authAdminCheck,(req,res) => {
 	res.render('adminupload',{user:req.user});
 });
 
-router.post('/submit',(req,res) => {
+router.post('/submit',authAdminCheck,(req,res) => {
 	const form = new formidable.IncomingForm();
 	form.parse(req, (err,fields ,files) => {
     if (err) {
@@ -65,11 +79,11 @@ router.post('/submit',(req,res) => {
 		  	contentType:img.type,
 		  	size:Math.round((img.size)/1024),
 		  	image:encode_image
-		}).save().then((err,newImage) => {
-			if(err){
-				res.redirect('/error');
-			}
+		}).save().then((newImage) => {
 			res.redirect('/admin/profile');
+		}).catch((err) => {
+			console.log("Error in adding in image collection");
+			console.log(err);
 		});
 		}//end of files for loop
 	});
@@ -77,5 +91,28 @@ router.post('/submit',(req,res) => {
 	
 });
 
+router.post('/accept/:id',authAdminCheck,(req,res) => {
+	Pending.findByIdAndDelete({_id:req.params.id}).then((removed) => {
+		// console.log(removed["author"]);
+		new Image({
+			title:removed["title"],
+			author:removed["author"] ,
+			contentType:removed["contentType"] ,
+			size:removed["size"] ,
+			image:removed["image"] 
+		}).save().then((added) => {
+			// console.log('shifted');
+			res.redirect('/admin/profile');
+		}).catch((err) => {
+			console.log('error while shifting');
+		});
+	}).catch((err) => {
+		console.log(err);
+	});
+});
+
+router.get('/*',(req,res) => {
+	res.redirect('/error');
+});
 
 module.exports = router;
