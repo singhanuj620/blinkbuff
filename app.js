@@ -44,7 +44,10 @@ app.use("/delete",deleteRoutes);
 
 
 app.get('/', (req,res) => {
-	res.render('homepage',{user:req.user});
+	Image.find({}, null, {limit: 4}).then((items) => {
+		let overall_length = Object.keys(items).length
+		res.render('homepage',{user:req.user,images:items,len:overall_length});
+	});
 });
 
 
