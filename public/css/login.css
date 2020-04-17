@@ -1,5 +1,6 @@
 body{
 	background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+	height: 100vh;
 }
 
 .element_centre{
@@ -21,9 +22,6 @@ body{
 }
 
 
-
-
-
 .social-btn .btn {
         margin: 10px 0;
         font-size: 15px;
@@ -35,3 +33,10 @@ body{
 		margin: 4px 15px  0 5px;
         min-width: 15px;
 	}
+
+@media (min-width: 320px) and (max-width: 480px) {
+	.element_resize{
+		height: 40vh;
+		width: 100%;
+	}
+}

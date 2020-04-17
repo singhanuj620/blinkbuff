@@ -13,6 +13,9 @@
 
   <link rel="stylesheet" href="/css/homepage.css" type="text/css">
 
+  <link rel="stylesheet" href="/css/sample.css" type="text/css">
+
+  
   <title>Blink Buff</title>
 </head>
 <body>
@@ -61,39 +64,23 @@
   </div>
 
 
-<div class="container">
+<div class="container page-top">
   <div class="row">
-    <div class="col-lg-6 col-md-12 col-sm-12">
-      <div class="d-flex flex-row">
         <% for (var i = len-1; i >= 0; i--) { -%>
           <% let temp = images[i].image; %>
           <%  let photo = temp.toString('base64'); %>
           <%  let pic = 'data:image/jpeg;base64,' + photo; %>
-          <div>
-            <img src="<%= pic %>" alt="<%=images[i].title%>" class="gallery" />
-          </div>
-
-          <div class="d-flex flex-row mb-3">
-              <div class="col-lg-10 col-md-10 col-sm-10 d-flex flex-column justify-content-start">
-                <div>
-                  <span><small><strong>Title : </strong><%=images[i].title%></span></small>
-                </div>
-
-                <div>
-                  <span><small><strong>Author : </strong><%=images[i].author%></span></small>
-                </div>
-              </div>
-
-              <div class="col-lg-2 col-md-2 col-sm-2 d-flex justify-content-end align-items-center">
-                <span><button class="btn btn-sm btn-info">View</button></span>
-              </div>
+          
+          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <small><strong>Title</strong> : "<%=images[i].title%>" </small>
+            <a href="<%= pic %>" class="fancybox" rel="ligthbox">
+              <img  src="<%= pic %>" alt="<%=images[i].title%>" class="zoom img-fluid">
+            </a>
+            <small style="float: right;"><strong>By</strong> : <%=images[i].author%></small>
           </div>
         <% } -%>
-      </div>
     </div>
   </div>
-</div>
-  <br>
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 photo_collection_heading d-flex flex-row justify-content-center">
@@ -103,23 +90,26 @@
   </div>
   <br>
 
-<div class="d-flex flex-row">
-  <div class="col-lg-6 col-md-6 col-sm-6">
-    <div class="d-flex flex-column ">
-      <div class="d-flex justify-content-center">
-        <p class="follow_heading">Follow Us : </p>
-      </div>
-      <div class="d-flex justify-content-center">
-        <ul>
-            <li class="mb-3"><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a></li>
-            <li><a href="https://instagram.com/" target="_blank"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></li>
-          </ul>
+
+<div class="footer_div">
+  <div class="d-flex flex-row">
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <div class="d-flex flex-column">
+        <div class="d-flex justify-content-center">
+          <p class="follow_heading">Follow Us : </p>
+        </div>
+        <div class="d-flex justify-content-center">
+          <ul>
+              <li class="mb-3"><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a></li>
+              <li><a href="https://instagram.com/" target="_blank"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="col-lg-6 col-md-6 col-sm-6 d-flex">
-    <img src="/images/selfie.svg" alt="Follow Us" class="selfie_svg">
+    <div class="col-lg-6 col-md-6 col-sm-6 d-flex footer_div">
+      <img src="/images/selfie.svg" alt="Follow Us" class="selfie_svg">
+    </div>
   </div>
 </div>
 
@@ -127,5 +117,8 @@
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+<script src="/js/sample.js"></script>
 </body>
 </html>

@@ -1,0 +1,28 @@
+body {
+  background: #42275a;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #734b6d, #42275a);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #734b6d, #42275a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  font-family: "Asap", sans-serif;
+  color:white;
+  margin:10px;
+  font-size:16px;
+}
+
+.photo_collection_heading{
+	text-align: center;
+	font-family: 'Gotu', sans-serif;
+	
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+	.photo_collection_heading{
+		font-size: 5rem;
+	}
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+	.photo_collection_heading{
+		font-size: 2rem;
+	}
+}

@@ -4,67 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="/css/gallery.css" type="text/css">
   <script src="navbar.js"></script>
-  <link rel="stylesheet" href="/css/collection.css" type="text/css">
   
   <link href="https://fonts.googleapis.com/css2?family=Gotu&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,700&display=swap" rel="stylesheet">
-
-  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/45226/material-photo-gallery.min.js"></script>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <title>Blink Buff</title>
+  <link rel="stylesheet" href="/css/collections.css" type="text/css">
+
+  <link rel="stylesheet" href="/css/sample.css" type="text/css">
 </head>
 <body>
-	
-  <%- include('./partials/navbar') %>
 
-  
-<br>
-<br>
-<br>
+<%- include('./partials/navbar') %>
+
 <div class="container">
-  <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12">
-      
-      <div class="m-p-g">
-        <div class="m-p-g__thumbs" data-google-image-layout data-max-height="350">
-
-
-
-          <% for (var i = len-1; i >= 0; i--) { -%>
-            <% let temp = images[i].image; %>
-            <%  let photo = temp.toString('base64'); %>
-            <%  let pic = 'data:image/jpeg;base64,' + photo; %>
-            <img src="<%= pic %>" alt="<%=images[i].title%>" class="m-p-g__thumbs-img" />
-          <% } -%>
-          <img src="https://images.unsplash.com/photo-1533601017-dc61895e03c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" class="m-p-g__thumbs-img" />
-        </div>
-        <div class="m-p-g__fullscreen">
-        </div>
+    <div class="row mt-5">
+      <div class="col-lg-12 col-md-12 col-sm-12 photo_collection_heading d-flex flex-row justify-content-center">
+        <p>Photo Collection</p>
       </div>
-
-
     </div>
   </div>
-</div>
 
 
-
-<script>
-  var elem = document.querySelector('.m-p-g');
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var gallery = new MaterialPhotoGallery(elem);
-  });
-</script>
+<div class="container page-top">
+  <div class="row">
+        <% for (var i = len-1; i >= 0; i--) { -%>
+          <% let temp = images[i].image; %>
+          <%  let photo = temp.toString('base64'); %>
+          <%  let pic = 'data:image/jpeg;base64,' + photo; %>
+          
+          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <small><strong>Title</strong> : "<%=images[i].title%>" </small>
+            <a href="<%= pic %>" class="fancybox" rel="ligthbox">
+              <img  src="<%= pic %>" alt="<%=images[i].title%>" class="zoom img-fluid">
+            </a>
+            <small style="float: right;"><strong>By</strong> : <%=images[i].author%></small>
+          </div>
+        <% } -%>
+    </div>
+  </div>
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+<script src="/js/sample.js"></script>
 </body>
 </html>

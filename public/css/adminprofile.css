@@ -37,3 +37,10 @@ background: linear-gradient(to right, #fbc7d4, #9796f0); /* W3C, IE 10+/ Edge, F
   font-size: 1rem;
   font-family: 'Ubuntu', sans-serif;
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .img_preview{
+  height: 50px;
+  width: 50px;
+}
+}

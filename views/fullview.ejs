@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Gotu&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/css/fullview.css" type="text/css">
+
+  
+  <title>Blink Buff | Full View</title>
+</head>
+<body>
+	
+  <%- include('./partials/navbar') %>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
+      <% for (var i = len-1; i >= 0; i--) { -%>
+        <% let temp = images[0].image; %>
+        <%  let photo = temp.toString('base64'); %>
+        <%  let pic = 'data:image/jpeg;base64,' + photo; %>
+        <img src="<%=pic%>" alt="" height="100%" width="100%">
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="row d-flex">
+    <div class=" col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center mb-3">
+      <h1>Image Information</h1>
+    </div>
+     <div class=" col-lg-12 col-md-12 col-sm-12 d-flex justify-content-start">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%=images[i].title%></td>
+            <td><%=images[i].author%></td>
+            <td>
+              <form action="/delete/images/<%=images[i].id%>?_method=DELETE" method="POST">
+              <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <% } %>
+    </div>
+  </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -16,6 +16,7 @@ const 	express 			=	require('express'),
 		formidable 			= 	require('formidable'),
 		app					=	express();
 const Image	=	require('./models/image-model');
+const Pending	=	require('./models/pending-model');
 
 dotenv.config();
 app.set('view engine' , 'ejs');
@@ -48,6 +49,7 @@ app.get('/', (req,res) => {
 		let overall_length = Object.keys(items).length
 		res.render('homepage',{user:req.user,images:items,len:overall_length});
 	});
+	// res.render('sample');
 });
 
 
@@ -66,6 +68,28 @@ app.get('/collections',(req,res) => {
 		res.render('collections',{user:req.user,images:items,len:overall_length});
 	});
 });
+
+
+app.get('/view/images/:id',(req,res) => {
+	Image.find({_id:req.params.id}).then((items) => {
+		let overall_length = Object.keys(items).length
+		res.render('fullview',{user:req.user,images:items,len:overall_length});
+		// console.log(item);
+	}).catch((err) => {
+		console.log(err);
+	})
+});
+
+app.get('/view/pending/:id',(req,res) => {
+	Pending.find({_id:req.params.id}).then((items) => {
+		let overall_length = Object.keys(items).length
+		res.render('pendfullview',{user:req.user,images:items,len:overall_length});
+		// console.log(item);
+	}).catch((err) => {
+		console.log(err);
+	})
+});
+
 
 app.get('/*',(req,res) => {
 	res.redirect('/error');
