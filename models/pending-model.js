@@ -6,7 +6,8 @@ const pendingSchema = new Schema({
 	author:String,
 	contentType:String,
 	size:Number,
-	image:String
+	image:String,
+	img_url:String
 });
 
 const Pending = mongoose.model("pendings", pendingSchema);

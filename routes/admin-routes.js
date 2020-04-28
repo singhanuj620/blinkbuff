@@ -65,30 +65,51 @@ router.post('/submit',authAdminCheck,(req,res) => {
     const author = fields["author"];
     const title = fields["title"];
 
-    // console.log('Files', files)
+    if(fields["img_url"]){
+    	let old_url = fields["img_url"]
+    	let new_url = old_url.replace("drive.google.com/open?", "drive.google.com/uc?");
+    	new Image({
+				author:author,
+				title:title,
+			  	contentType:'jpg',
+			  	size:0,
+			  	image:null,
+			  	img_url:new_url
+			}).save().then((newImage) => {
+				res.redirect('/admin/profile');
+			}).catch((err) => {
+				console.log("Error in adding in image collection");
+				console.log(err);
+			});
+    }//if
 
-    for (const file of Object.entries(files)) {
+    else{
+    	for (const file of Object.entries(files)) {
      	// console.log(file[1]);
-     	const img=file[1]
-     	const i = fs.readFileSync(img.path);
-	  	const encode_image=i.toString('base64');
-		// console.log(data)
-		new Image({
-			author:author,
-			title:title,
-		  	contentType:img.type,
-		  	size:Math.round((img.size)/1024),
-		  	image:encode_image
-		}).save().then((newImage) => {
-			res.redirect('/admin/profile');
-		}).catch((err) => {
-			console.log("Error in adding in image collection");
-			console.log(err);
-		});
+	     	const img=file[1]
+	     	const i = fs.readFileSync(img.path);
+		  	const encode_image=i.toString('base64');
+			// console.log(data)
+			new Image({
+				author:author,
+				title:title,
+			  	contentType:img.type,
+			  	size:Math.round((img.size)/1024),
+			  	image:encode_image,
+			  	img_url:null
+			}).save().then((newImage) => {
+				res.redirect('/admin/profile');
+			}).catch((err) => {
+				console.log("Error in adding in image collection");
+				console.log(err);
+			});
 		}//end of files for loop
+
+    }//else
+    
 	});
 	// end of formidable
-	
+	// console.log('enddddd');
 });
 
 router.post('/accept/:id',authAdminCheck,(req,res) => {
@@ -99,7 +120,8 @@ router.post('/accept/:id',authAdminCheck,(req,res) => {
 			author:removed["author"] ,
 			contentType:removed["contentType"] ,
 			size:removed["size"] ,
-			image:removed["image"] 
+			image:removed["image"],
+			img_url:removed["img_url"]
 		}).save().then((added) => {
 			// console.log('shifted');
 			res.redirect('/admin/profile');

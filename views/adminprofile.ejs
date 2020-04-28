@@ -71,25 +71,46 @@
   </thead>
   <tbody class="table_text">
     <% for (var i = pend_len-1; i >= 0; i--) { -%>
-      <% let temp = pend_images[i].image; %>
-      <%  let photo = temp.toString('base64'); %>
-      <%  let pic = 'data:image/jpeg;base64,' + photo; %>
-      <tr>
-        <th scope="row"><%=pend_len-i%></th>
-        <td><img class="img_preview" src="<%= pic %>" alt="<%=pend_images[i].title%>"></td>
-        <td><%=pend_images[i].title%> ( <%=pend_images[i].size%> KB)</td>
-        <td><%=pend_images[i].author%></td>
-        <td>
-          <div>
-            <a href="/view/pending/<%=pend_images[i]._id%>"><button class="btn btn-sm btn-info">View</button></a>
-            <span> | </span>
-            <form action="/delete/pending/<%=pend_images[i].id%>?_method=DELETE" method="POST">
-              <button class="btn btn-sm btn-danger" type="submit">Delete</button> 
-            </form>        
-          </div>
-        </td>
-       </tr>
-    <% } -%>
+
+      <% if (pend_images[i].image) { -%>
+        <% let temp = pend_images[i].image; %>
+        <%  let photo = temp.toString('base64'); %>
+        <%  let pic = 'data:image/jpeg;base64,' + photo; %>
+        <tr>
+          <th scope="row"><%=pend_len-i%></th>
+          <td><img class="img_preview" src="<%= pic %>" alt="<%=pend_images[i].title%>"></td>
+          <td><%=pend_images[i].title%> ( <%=pend_images[i].size%> KB)</td>
+          <td><%=pend_images[i].author%></td>
+          <td>
+            <div>
+              <a href="/view/pending/<%=pend_images[i]._id%>"><button class="btn btn-sm btn-info">View</button></a>
+              <span> | </span>
+              <form action="/delete/images/<%=pend_images[i].id%>?_method=DELETE" method="POST">
+                <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+              </form>
+            </div>
+          </td>
+         </tr>
+      <% } else { -%>
+        <tr>
+          <th scope="row"><%=pend_len-i%></th>
+          <td><img class="img_preview" src="<%= pend_images[i].img_url %>" alt="<%=pend_images[i].title%>"></td>
+          <td><%=pend_images[i].title%> ( <%=pend_images[i].size%> KB)</td>
+          <td><%=pend_images[i].author%></td>
+          <td>
+            <div>
+              <a href="/view/pending/<%=pend_images[i]._id%>"><button class="btn btn-sm btn-info">View</button></a>
+              <span> | </span>
+              <form action="/delete/images/<%=pend_images[i].id%>?_method=DELETE" method="POST">
+                <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+              </form>
+            </div>
+          </td>
+         </tr>
+      <% } -%>
+      <!-- end of else loop -->
+    <% } -%> 
+    <!-- end of for loop -->
   </tbody>
 </table>
     </div>
@@ -123,25 +144,46 @@
   </thead>
   <tbody class="table_text">
     <% for (var i = len-1; i >= 0; i--) { -%>
-      <% let temp = images[i].image; %>
-      <%  let photo = temp.toString('base64'); %>
-      <%  let pic = 'data:image/jpeg;base64,' + photo; %>
-      <tr>
-        <th scope="row"><%=len-i%></th>
-        <td><img class="img_preview" src="<%= pic %>" alt="<%=images[i].title%>"></td>
-        <td><%=images[i].title%> ( <%=images[i].size%> KB)</td>
-        <td><%=images[i].author%></td>
-        <td>
-          <div>
-            <a href="/view/images/<%=images[i]._id%>"><button class="btn btn-sm btn-info">View</button></a>
-            <span> | </span>
-            <form action="/delete/images/<%=images[i].id%>?_method=DELETE" method="POST">
-              <button class="btn btn-sm btn-danger" type="submit">Delete</button>
-            </form>
-          </div>
-        </td>
-       </tr>
-    <% } -%>
+
+      <% if (images[i].image) { -%>
+        <% let temp = images[i].image; %>
+        <%  let photo = temp.toString('base64'); %>
+        <%  let pic = 'data:image/jpeg;base64,' + photo; %>
+        <tr>
+          <th scope="row"><%=len-i%></th>
+          <td><img class="img_preview" src="<%= pic %>" alt="<%=images[i].title%>"></td>
+          <td><%=images[i].title%> ( <%=images[i].size%> KB)</td>
+          <td><%=images[i].author%></td>
+          <td>
+            <div>
+              <a href="/view/images/<%=images[i]._id%>"><button class="btn btn-sm btn-info">View</button></a>
+              <span> | </span>
+              <form action="/delete/images/<%=images[i].id%>?_method=DELETE" method="POST">
+                <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+              </form>
+            </div>
+          </td>
+         </tr>
+      <% } else { -%>
+        <tr>
+          <th scope="row"><%=len-i%></th>
+          <td><img class="img_preview" src="<%= images[i].img_url %>" alt="<%=images[i].title%>"></td>
+          <td><%=images[i].title%> ( <%=images[i].size%> KB)</td>
+          <td><%=images[i].author%></td>
+          <td>
+            <div>
+              <a href="/view/images/<%=images[i]._id%>"><button class="btn btn-sm btn-info">View</button></a>
+              <span> | </span>
+              <form action="/delete/images/<%=images[i].id%>?_method=DELETE" method="POST">
+                <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+              </form>
+            </div>
+          </td>
+         </tr>
+      <% } -%>
+      <!-- end of else loop -->
+    <% } -%> 
+    <!-- end of for loop -->
   </tbody>
 </table>
     </div>
